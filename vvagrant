@@ -1,0 +1,29 @@
+#!/bin/bash
+
+
+#demodir='pe-demo'
+demodir='vagrant_tse_demos/pe-demo-2016.2.0-v3-c2'
+
+cd $HOME/$demodir
+echo "cd $PWD"
+
+if [ $1 = "u" ]
+  then
+    echo "vagrant up /master/ /gitlab/ /centos6a/ /server2012r2a/" 
+    vagrant up /master/ /gitlab/ /centos6a/ /server2012r2a/
+  elif [ $1 = "h" ] 
+  then
+    echo "vagrant halt /master/ /gitlab/ /centos6a/ /server2012r2a/"
+    vagrant halt /master/ /gitlab/ /centos6a/ /server2012r2a/
+#  vvagrant s|grep running|awk '{print $1}'
+  elif [ $1 = "snap" ] 
+  then
+    echo "vagrant snap take /master/ /gitlab/ /centos6a/ /server2012r2a/"
+    vagrant snap take /master/ /gitlab/ /centos6a/ /server2012r2a/
+  elif [ $1 = "s" ] 
+  then
+    echo "vagrant status"
+    vagrant status
+  else
+    echo "Usage: vvagrant u|h|s|snap"
+fi

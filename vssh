@@ -1,0 +1,25 @@
+#!/bin/bash
+
+echo "Home = $HOME"
+#demodir='pe-demo'
+demodir='vagrant_tse_demos/pe-demo-2016.2.0-v3-c2'
+
+cd ~/$demodir
+echo "cd $PWD"
+
+if [ $1 = "m" ]
+  then
+    echo "vagrant ssh /master/"
+    vagrant ssh /master/
+  elif [ $1 = "c" ] 
+  then
+    echo "vagrant ssh /centos6a/"
+    vagrant ssh /centos6a/
+  elif [ $1 = "g" ] 
+  then
+    echo "vagrant ssh /gitlab/"
+    vagrant ssh /gitlab/
+  else
+    vagrant ssh \/$1\/
+    echo "Usage: vssh c|m|g or hostname"
+fi
